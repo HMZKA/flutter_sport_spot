@@ -124,7 +124,7 @@ class MyMapState extends State<MyMap> {
 
                     return CachedNetworkImage(
                       imageUrl: google(z, x, y),
-                      fit: BoxFit.cover,
+                      fit: BoxFit.contain,
                     );
                   },
                 ),

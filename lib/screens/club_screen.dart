@@ -90,7 +90,7 @@ class ClubScreen extends StatelessWidget {
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 2.w),
               child: SizedBox(
-                  height: 25.h, width: SizerUtil.width, child: const MyMap()),
+                  height: 40.h, width: SizerUtil.width, child: const MyMap()),
             ),
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 2.w, vertical: 2.5.h),

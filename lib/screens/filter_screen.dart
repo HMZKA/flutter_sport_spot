@@ -17,34 +17,34 @@ class FilterScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: myAppBar(title: const Text("Stadiums"), centerTitle: true),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 8.0),
-        child: Column(
-          children: [
-            const MySearchBar(),
-            Expanded(
-                child: GridView.builder(
-              shrinkWrap: true,
-              padding: const EdgeInsets.all(8),
-              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
-                  mainAxisSpacing: 7,
-                  crossAxisSpacing: 7,
-                  childAspectRatio: 1.3),
-              itemCount: courts.length,
-              itemBuilder: (context, index) => GetBuilder<FilterController>(
-                init: FilterController(),
-                builder: (con) => GestureDetector(
-                    onTap: () {
-                      con.toggleItemSelection(index);
-                    },
-                    child: courtItem(context, con.courtsList[index])),
-              ),
-            )),
-            GetBuilder<FilterController>(
-                init: FilterController(),
-                builder: (controller) {
-                  return SlidingUpPanel(
+      body: Column(
+        children: [
+          const MySearchBar(),
+          Expanded(
+              child: GridView.builder(
+            shrinkWrap: true,
+            padding: const EdgeInsets.all(8),
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+                mainAxisSpacing: 7,
+                crossAxisSpacing: 7,
+                childAspectRatio: 1.3),
+            itemCount: courts.length,
+            itemBuilder: (context, index) => GetBuilder<FilterController>(
+              init: FilterController(),
+              builder: (con) => GestureDetector(
+                  onTap: () {
+                    con.toggleItemSelection(index);
+                  },
+                  child: courtItem(context, con.courtsList[index])),
+            ),
+          )),
+          GetBuilder<FilterController>(
+              init: FilterController(),
+              builder: (controller) {
+                return SizedBox(
+                  width: SizerUtil.width,
+                  child: SlidingUpPanel(
                     maxHeight: 50.h,
                     minHeight: 10.h,
                     panel: Padding(
@@ -109,10 +109,10 @@ class FilterScreen extends StatelessWidget {
                         ),
                       ),
                     ),
-                  );
-                })
-          ],
-        ),
+                  ),
+                );
+              })
+        ],
       ),
     );
   }
